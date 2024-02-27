@@ -1,0 +1,16 @@
+\begin{figure}[H]
+\centering
+ \begin{circuitikz} \draw
+ (0,0) node[op amp] (opamp) {}
+ (opamp.+) node[left] {} node[ground] {}
+ (opamp.-) node[left] {}
+ (opamp.-) node[left] {}
+ (opamp.out) node[right] {$v_o$};
+ %\draw (0,0)--(opamp.-);
+ \draw (-3,0.5) to[R=$R_1$,-*](opamp.-);
+ \draw (-4,0.5)node[above]{$v_i$} to [short, o-](-3,0.5);
+ \draw (opamp.-)--(-1.2,2.2)to[R=$R_2$](1.1, 2.2)to[short, -*](1.1,0);
+\end{circuitikz}
+\caption{Amplificador inversor.}
+ \label{ampOp}
+\end{figure}

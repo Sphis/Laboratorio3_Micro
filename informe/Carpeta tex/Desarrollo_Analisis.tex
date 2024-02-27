@@ -1,0 +1,74 @@
+\section{Desarrollo/Análisis}
+El diagrama de bloques generales para el funcionamiento del voltímetro es el siguiente.
+\input{sch2.tex}
+Una vez que se activen alguna de las fuentes, en la pantalla PCD8544 se mostrará las magnitudes (despreciables, \SI{0.05}{\volt}) por default en cada canal, y al estar el botón de modo AC/DC en bajo por tanto, en esta pantalla se mostrarán los valores en DC, si éste se pone en alto entonces en la pantalla se mostrarán los valores rms en AC, ahora, dependiendo de las magnitudes que se ajusten en ambos modos los LEDs de alarma se encenderán o no, que al mismo tiempo se verán en la pantalla. Por último, al presionar el botón de comunicación serial, se establece la comunicación adecuada para generar el informe del archivo csv.\par
+Luego, para realizar las medidas adecuadas se tuvo que realizar una función capaz de normalizar y escalar en el intervalo de rango solicitado: [-24, 24]. 
+\input{sch3.tex}
+Esta función se compone de un ciclo \texttt{for} que va iterando los valores que poseen los 4 canales y realiza una resta de 511 (la mitad de 1023) y voltaje medido, luego se hace la escala con el producto de esta substacción y la división de 48 entre 1023, todo esto para lograr manipular voltajes de \SI{0}{\volt}-\SI{5}{\volt} con el objetivo de normalizar y escalar el valor máximo medido.\par
+La función para generar las alarmas tanto en DC como en AC son muy similares, por lo que el siguiente diagrama de bloques es equivalente para ambos.
+\input{sch4.tex}
+Hasta este punto es posible mostrar el correcto funcionamiento del voltímetro con todos sus componentes. Primero se comprueba la medición de voltajes en DC.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/9.png}
+    \caption{Medición de tensión DC de los 4 canales.}
+    \label{fig_9}
+\end{figure}
+Se puede observar que la pantalla muestra las tensiones eléctricas en DC correctamente, es decir, el voltímetro es capaz de medir cuatro canales apropiadamente. Si se deseara ver la activación de los LEDs cuando se superan los umbrales de [-20, 20] basta con cambiar esto desde las fuentes. En la figura \ref{fig_10} se demuestra el resultado esperado.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/10.png}
+    \caption{Activación de alarma de los LEDs.}
+    \label{fig_10}
+\end{figure}
+Hecho esto, ahora se muestran las pruebas con tensión eléctrica en modo AC. Para realizar esta acción, se debe presionar el botón conectado al pin \texttt{A0} para ver los siguientes resultados.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/11.png}
+    \caption{Medición de tensión AC de los 4 canales.}
+    \label{fig_11}
+\end{figure}
+De la misma manera, note que en la figura \ref{fig_11} el modo AC también posee el sistema de alarmas para cuando los LEDs están fuera de los rangos permitidos: [-14.14, 14.14].\par
+
+Para la comunicación serial se realizaron los pasos correspondientes vistos en clases, para ello primeramente se configura el script con los comando para asignar los puertos, el puerto S0 es el que realiza la comunicación con el arduino y el puerto S1 es el que se diseña para poder hacer la comunicación con el script de python y guardar los datos medidos en el archivo csv.
+Primero se intentó establecer la comunicación entre el arduino y el puerto S0, de ahí que en la imagen \ref{figk1} la dirección /tmp/ttyS0, la comprobación correcta del funcionamiento se verifica en la siguiente imagen: 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/8a.png}
+    \caption{Verificación de la comunicación entre el arduino y el puerto serial.}
+    \label{figk2}
+\end{figure}
+Una vez comprobado el funcionamiento correcto de la comunicación anterior se procede a crear un puerto virtual para que pueda haber intercambio de información entre el puerto serial y el puerto serial virtual, S1, para ello se debe correr el bash script con el siguiente comando:\\
+\textit{socat PTY,link=/tmp/ttyS0,raw,echo=0 PTY,link=/tmp/ttyS1,raw,echo}\\
+Con este comando se crea el puerto virtual necesario, por lo que finalmente se procede a escribir un programa sencillo en python encargado de abrir un archivo csv y escribir en ello los datos correspondientes del puerto serial.\\
+Los pasos para correr todo entonces es, primero correr el bash script, seguidamente abrir la comunicación en el simulador haciendo click en la opción de ''Open'', correr el script de python y finalmente correr la simulación, basado en este proceso se obtienen los siguientes resultados:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/8b.png}
+    \caption{Verificación de la comunicación entre el puerto serial y el puerto virtual.}
+    \label{figk3}
+\end{figure}
+Realizando unos cambios en las fuentes de alimentación, se demuestra que por consola se obtienen los resultados esperados. Haciendo la medición en DC.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/13.png}
+    \caption{Medición y comunicación serial tensión DC.}
+    \label{fig_13}
+\end{figure}
+Luego, la medición en AC.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/14.png}
+    \caption{Medición y comunicación serial tensión AC.}
+    \label{fig_14}
+\end{figure}
+Finalmente, se obtiene el archivo .csv generado a partir de la comunicación establecida.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{Imagenes/15.png}
+    \caption{Archivo csv generado.}
+    \label{fig_15}
+\end{figure}
+
+Ya se comprobó la generación correcta de los archivos csv, con sus respectivos valores, pero si se quisiera verificar se puede consultar el siguiente repositorio: \url{https://github.com/JosueC07183/Labo3.git} donde encontrará todos los detalles necesarios de su funcionamiento. De tal manera, que el voltímetro funciona correctamente.
+\newpage

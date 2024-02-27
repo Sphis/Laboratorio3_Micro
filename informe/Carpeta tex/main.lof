@@ -1,0 +1,23 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagrama de bloques de ATMega328P. Tomado de \cite {web1}.}}{3}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Diagrama de pines de ATMega328P. Tomado de \cite {web1}.}}{4}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Clasificación de pines de ATMega328P. Tomado de \cite {web5}.}}{4}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Amplificador inversor.}}{6}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Diseño antirebote.}}{7}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Circuito del voltímetro}}{8}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Tensión de salida a medir.}}{8}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Funcionamiento correcto de la pantalla PCD8544.}}{9}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Conexión de los LEDs al arduino.}}{10}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Canales del voltímetro.}}{10}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Introducción del puerto serial y el switch para realizar la comunicación.}}{11}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Diagrama de bloques general}}{12}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Diagrama de flujo función mide\_voltaje}}{13}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Diagrama de flujo alarma AC/DC.}}{14}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Medición de tensión DC de los 4 canales.}}{15}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Activación de alarma de los LEDs.}}{15}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Medición de tensión AC de los 4 canales.}}{16}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Verificación de la comunicación entre el arduino y el puerto serial.}}{16}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Verificación de la comunicación entre el puerto serial y el puerto virtual.}}{17}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Medición y comunicación serial tensión DC.}}{17}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Medición y comunicación serial tensión AC.}}{18}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Archivo csv generado.}}{18}{figure.22}%

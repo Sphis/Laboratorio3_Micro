@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{web1}
+Atmel.
+\newblock Atmega328p datasheet (pdf) - atmel corporation.
+\newblock Atmel,
+  \url{https://pdf1.alldatasheet.com/datasheet-pdf/view/241077/ATMEL/ATMEGA328P.html},
+  julio 2023.
+\newblock Accedido en enero de 2024.
+
+\bibitem{web5}
+Atmel.
+\newblock 8-bit avr microcontrollers.
+\newblock Atmel,
+  \url{https://datasheet.octopart.com/ATMEGA328P-MU-Microchip-datasheet-65729177.pdf},
+  junio 2023.
+\newblock Accedido en enero de 2024.
+
+\bibitem{web2}
+Sparkfun.
+\newblock Datasheet pcd8544.
+\newblock SparkfunO,
+  \url{https://www.sparkfun.com/datasheets/LCD/Monochrome/Nokia5110.pdf},
+  noviembre 2008.
+\newblock Accedido en enero de 2024.
+
+\bibitem{web3}
+Sparkfun.
+\newblock Serial peripheral interface (spi).
+\newblock SparkfunO,
+  \url{https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi},
+  mayo 2018.
+\newblock Accedido en enero de 2024.
+
+\bibitem{web4}
+MicroJpm.
+\newblock Componentes disponibles.
+\newblock MicroJpm, \url{https://www.microjpm.com/}, mayo 2022.
+\newblock Accedido en enero de 2024.
+
+\end{thebibliography}
